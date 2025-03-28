@@ -4,17 +4,17 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/downloader/')
 def home():
     return '''
         <h1>YouTube Videolarını İndir</h1>
-        <form action="/download" method="POST">
+        <form action="/downloader/download" method="POST">
             <input type="text" name="url" placeholder="YouTube bağlantısını yapıştırın">
             <input type="submit" value="İndir">
         </form>
     '''
 
-@app.route('/download', methods=['POST'])
+@app.route('/downloader/download', methods=['POST'])
 def download():
     url = request.form['url']
     opts = {
